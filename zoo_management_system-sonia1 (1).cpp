@@ -1,7 +1,7 @@
 #include <iostream>
 #include <conio.h>
 using namespace std;
-main()
+int main()
 {
      Animal arrays (max 200) 
     int totalAnimals = 0;
