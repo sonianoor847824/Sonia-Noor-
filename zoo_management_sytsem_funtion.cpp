@@ -4,9 +4,9 @@ using namespace std;
 void welcomeScreen()
 {
     cout << "--------- Welcome to ZOO Management System! --------" << endl;
-    cout << " 1 -> Login as Admin (Zoo Manager)                  " << endl;
-    cout << " 2 -> Login as Visitor (Guest)                      " << endl;
-    cout << " 3 -> Exit                                          " << endl;
+    cout << " 1  Login as Admin (Zoo Manager)                  " << endl;
+    cout << " 2  Login as Visitor (Guest)                      " << endl;
+    cout << " 3  Exit                                          " << endl;
 }
 void adminMenu()
 {
@@ -29,7 +29,7 @@ void addNewAnimal(string animalID[], string animalName[], string species[], stri
     cout << "--- ADD NEW ANIMAL ---" << endl;
     if (totalAnimals >= 200)
     {
-        cout << "[ERROR] Max 200 animals reached." << endl;
+        cout << "[ERROR] Max 200 animals reached" << endl;
     }
     else
     {
@@ -60,7 +60,7 @@ void removeAnimal(string animalID[], string animalName[], string species[], stri
                   int isAlive[], int &totalAnimals, string historyLog[], string historyDate[], int &totalHistory)
 {
     cout << "--- REMOVE ANIMAL ---" << endl;
-    cout << "Enter Animal ID: ";
+    cout << "Enter Animal ID ";
     string removeID;
     cin >> removeID;
 
@@ -81,7 +81,7 @@ void removeAnimal(string animalID[], string animalName[], string species[], stri
         cin >> confirm;
         if (confirm == "y" || confirm == "Y")
         {
-            historyLog[totalHistory] = "REMOVE " + animalName[found] + " (ID:" + removeID + ")";
+            historyLog[totalHistory] = "REMOVE " + animalName[found] + " (ID" + removeID + ")";
             historyDate[totalHistory] = "Session";
             totalHistory++;
             Shift ALL 8 arrays left to fill the gap
@@ -96,7 +96,7 @@ void removeAnimal(string animalID[], string animalName[], string species[], stri
                 conservationStatus[i] = conservationStatus[i + 1];
                 isAlive[i] = isAlive[i + 1];
             }
-            totalAnimals--;
+            totalAnimals;
             cout << "Animal removed" << endl;
         }
         else
@@ -388,8 +388,7 @@ void endangeredAnimals(string animalName[], string species[], string habitat[], 
         {
             cout << animalName[i] << " | " << species[i] << " | " << habitat[i] << " | " << conservationStatus[i] << endl;
             count++;
-        }
-    }
+        }    }
     if (count == 0)
         cout << "No endangered animals found" << endl;
     else
@@ -541,7 +540,7 @@ main()
                     {
                         system("cls");
                         adminMenu();
-                        cout << "Select: ";
+                        cout << "Select ";
                         string adminChoice;
                         cin >> adminChoice;
 
@@ -599,7 +598,7 @@ main()
                         {
                             system("cls");
                             searchBySpecies(animalName, species, habitat, healthStatus, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
