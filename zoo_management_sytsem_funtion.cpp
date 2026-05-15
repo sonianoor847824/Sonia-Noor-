@@ -3,24 +3,24 @@
 using namespace std;
 void welcomeScreen()
 {
-    cout << "|--------- Welcome to ZOO Management System! --------|" << endl;
-    cout << "| 1 -> Login as Admin (Zoo Manager)                  |" << endl;
-    cout << "| 2 -> Login as Visitor (Guest)                      |" << endl;
-    cout << "| 3 -> Exit                                          |" << endl;
+    cout << "--------- Welcome to ZOO Management System! --------" << endl;
+    cout << " 1 -> Login as Admin (Zoo Manager)                  " << endl;
+    cout << " 2 -> Login as Visitor (Guest)                      " << endl;
+    cout << " 3 -> Exit                                          " << endl;
 }
 void adminMenu()
 {
-    cout << "|---- ADMIN PANEL ----|" << endl;
-    cout << "1  -> Add New Animal" << endl;
-    cout << "2  -> Remove an Animal" << endl;
-    cout << "3  -> Update Health Status" << endl;
-    cout << "4  -> Update Diet Info" << endl;
-    cout << "5  -> View All Animals" << endl;
-    cout << "6  -> Search by Species" << endl;
-    cout << "7  -> Sort Animals by Name" << endl;
-    cout << "8  -> View Animals by Habitat" << endl;
-    cout << "9  -> View History Log" << endl;
-    cout << "10 -> Exit Admin Panel" << endl;
+    cout << "---- ADMIN PANEL ----" << endl;
+    cout << "1   Add New Animal" << endl;
+    cout << "2   Remove an Animal" << endl;
+    cout << "3   Update Health Status" << endl;
+    cout << "4   Update Diet Info" << endl;
+    cout << "5   View All Animals" << endl;
+    cout << "6   Search by Species" << endl;
+    cout << "7   Sort Animals by Name" << endl;
+    cout << "8   View Animals by Habitat" << endl;
+    cout << "9   View History Log" << endl;
+    cout << "10  Exit Admin Panel" << endl;
 }
 void addNewAnimal(string animalID[], string animalName[], string species[], string habitat[],
                   string diet[], string healthStatus[], string conservationStatus[],
@@ -33,22 +33,22 @@ void addNewAnimal(string animalID[], string animalName[], string species[], stri
     }
     else
     {
-        cout << "Animal ID          : ";
+        cout << "Animal ID           ";
         cin >> animalID[totalAnimals];
-        cout << "Animal Name        : ";
+        cout << "Animal Name         ";
         cin >> animalName[totalAnimals];
-        cout << "Species            : ";
+        cout << "Species             ";
         cin >> species[totalAnimals];
-        cout << "Habitat            : ";
+        cout << "Habitat             ";
         cin >> habitat[totalAnimals];
-        cout << "Diet               : ";
+        cout << "Diet                ";
         cin >> diet[totalAnimals];
-        cout << "Health Status      : ";
+        cout << "Health Status       ";
         cin >> healthStatus[totalAnimals];
-        cout << "Conservation Status: ";
+        cout << "Conservation Status ";
         cin >> conservationStatus[totalAnimals];
         isAlive[totalAnimals] = 1;
-        historyLog[totalHistory] = "ADD: " + animalName[totalAnimals] + " (ID:" + animalID[totalAnimals] + ")";
+        historyLog[totalHistory] = "ADD " + animalName[totalAnimals] + " (ID" + animalID[totalAnimals] + ")";
         historyDate[totalHistory] = "Session";
         totalHistory++;
         totalAnimals++;
@@ -71,20 +71,20 @@ void removeAnimal(string animalID[], string animalName[], string species[], stri
 
     if (found == -1)
     {
-        cout << "[ERROR] Animal not found." << endl;
+        cout << "[ERROR] Animal not found" << endl;
     }
     else
     {
-        cout << "Name: " << animalName[found] << " | Species: " << species[found] << endl;
-        cout << "Confirm remove? (y/n): ";
+        cout << "Name " << animalName[found] << " | Species " << species[found] << endl;
+        cout << "Confirm remove?  ";
         string confirm;
         cin >> confirm;
         if (confirm == "y" || confirm == "Y")
         {
-            historyLog[totalHistory] = "REMOVE: " + animalName[found] + " (ID:" + removeID + ")";
+            historyLog[totalHistory] = "REMOVE " + animalName[found] + " (ID:" + removeID + ")";
             historyDate[totalHistory] = "Session";
             totalHistory++;
-            // Shift ALL 8 arrays left to fill the gap
+            Shift ALL 8 arrays left to fill the gap
             for (int i = found; i < totalAnimals - 1; i++)
             {
                 animalID[i] = animalID[i + 1];
@@ -97,17 +97,17 @@ void removeAnimal(string animalID[], string animalName[], string species[], stri
                 isAlive[i] = isAlive[i + 1];
             }
             totalAnimals--;
-            cout << "Animal removed." << endl;
+            cout << "Animal removed" << endl;
         }
         else
-            cout << "Cancelled." << endl;
+            cout << "Cancelled" << endl;
     }
 }
 void healthStatusUpdate(string animalID[], string animalName[], string healthStatus[], int totalAnimals,
                         string historyLog[], string historyDate[], int &totalHistory)
 {
     cout << "--- UPDATE HEALTH STATUS ---" << endl;
-    cout << "Enter Animal ID: ";
+    cout << "Enter Animal ID ";
     string updID;
     cin >> updID;
 
@@ -118,27 +118,27 @@ void healthStatusUpdate(string animalID[], string animalName[], string healthSta
 
     if (found == -1)
     {
-        cout << "[ERROR] Animal not found." << endl;
+        cout << "[ERROR] Animal not found" << endl;
     }
     else
     {
-        cout << "Current Health: " << healthStatus[found] << endl;
-        cout << "New Status (healthy/sick/critical/recovering): ";
+        cout << "Current Health " << healthStatus[found] << endl;
+        cout << "New Status (healthy/sick/critical/recovering) ";
         string newStatus;
         cin >> newStatus;
         string oldStatus = healthStatus[found];
         healthStatus[found] = newStatus;
-        historyLog[totalHistory] = "UPDATE HEALTH: " + animalName[found] + " | " + oldStatus + " -> " + newStatus;
+        historyLog[totalHistory] = "UPDATE HEALTH " + animalName[found] + " | " + oldStatus + " : " + newStatus;
         historyDate[totalHistory] = "Session";
         totalHistory++;
-        cout << "Health updated." << endl;
+        cout << "Health updated" << endl;
     }
 }
 void dietUpdate(string animalID[], string animalName[], string diet[], int totalAnimals,
                 string historyLog[], string historyDate[], int &totalHistory)
 {
     cout << "--- UPDATE DIET INFO ---" << endl;
-    cout << "Enter Animal ID: ";
+    cout << "Enter Animal ID ";
     string updID;
     cin >> updID;
 
@@ -149,20 +149,20 @@ void dietUpdate(string animalID[], string animalName[], string diet[], int total
 
     if (found == -1)
     {
-        cout << "[ERROR] Animal not found." << endl;
+        cout << "[ERROR] Animal not found" << endl;
     }
     else
     {
-        cout << "Current Diet: " << diet[found] << endl;
-        cout << "New Diet: ";
+        cout << "Current Diet " << diet[found] << endl;
+        cout << "New Diet ";
         string newDiet;
         cin >> newDiet;
         string oldDiet = diet[found];
         diet[found] = newDiet;
-        historyLog[totalHistory] = "UPDATE DIET: " + animalName[found] + " | " + oldDiet + " -> " + newDiet;
+        historyLog[totalHistory] = "UPDATE DIET " + animalName[found] + " | " + oldDiet + " : " + newDiet;
         historyDate[totalHistory] = "Session";
         totalHistory++;
-        cout << "Diet updated." << endl;
+        cout << "Diet updated" << endl;
     }
 }
 void viewAllAnimals(string animalID[], string animalName[], string species[], string habitat[], string diet[], string healthStatus[], string conservationStatus[], int totalAnimals)
@@ -170,7 +170,7 @@ void viewAllAnimals(string animalID[], string animalName[], string species[], st
     cout << "--- ALL ANIMALS ---" << endl;
     if (totalAnimals == 0)
     {
-        cout << "No animals registered." << endl;
+        cout << "No animals registered" << endl;
     }
     else
     {
@@ -185,13 +185,13 @@ void viewAllAnimals(string animalID[], string animalName[], string species[], st
             else
                 sick++;
         }
-        cout << "Total: " << totalAnimals << " | Healthy: " << healthy << " | Sick: " << sick << endl;
+        cout << "Total " << totalAnimals << " | Healthy " << healthy << " | Sick " << sick << endl;
     }
 }
 void searchBySpecies(string animalName[], string species[], string habitat[], string healthStatus[], string conservationStatus[], int totalAnimals)
 {
     cout << "--- SEARCH BY SPECIES ---" << endl;
-    cout << "Enter species: ";
+    cout << "Enter species ";
     string s;
     cin >> s;
     int count = 0;
@@ -204,20 +204,20 @@ void searchBySpecies(string animalName[], string species[], string habitat[], st
         }
     }
     if (count == 0)
-        cout << "No animals found." << endl;
+        cout << "No animals found" << endl;
     else
-        cout << "Found: " << count << endl;
+        cout << "Found " << count << endl;
 }
 void sortByName(string animalID[], string animalName[], string species[], string habitat[],
                 string diet[], string healthStatus[], string conservationStatus[],
                 int isAlive[], int totalAnimals)
 {
     cout << "--- SORT BY NAME ---" << endl;
-    cout << "1 -> A-Z  |  2 -> Z-A : ";
+    cout << "1  A-Z  |  2  Z-A  ";
     string sortOrder;
     cin >> sortOrder;
 
-    // Find the right position, swap all 8 arrays using temp variables
+     Find the right position, swap all 8 arrays using temp variables
     for (int i = 0; i < totalAnimals - 1; i++)
     {
         int targetPos = i;
@@ -258,14 +258,14 @@ void sortByName(string animalID[], string animalName[], string species[], string
             isAlive[targetPos] = ti;
         }
     }
-    cout << "Sorted! Results:" << endl;
+    cout << "Sorted! Results" << endl;
     for (int i = 0; i < totalAnimals; i++)
         cout << animalName[i] << " | " << species[i] << " | " << habitat[i] << endl;
 }
 void viewByHabitat(string animalName[], string species[], string habitat[], string healthStatus[], string conservationStatus[], int totalAnimals)
 {
     cout << "--- VIEW BY HABITAT ---" << endl;
-    cout << "Enter habitat name: ";
+    cout << "Enter habitat name ";
     string h;
     cin >> h;
     int count = 0;
@@ -278,41 +278,41 @@ void viewByHabitat(string animalName[], string species[], string habitat[], stri
         }
     }
     if (count == 0)
-        cout << "No animals in this habitat." << endl;
+        cout << "No animals in this habitat" << endl;
     else
-        cout << "Total: " << count << endl;
+        cout << "Total " << count << endl;
 }
 void viewHistoryLog(string historyLog[], string historyDate[], int totalHistory)
 {
     cout << "--- HISTORY LOG ---" << endl;
     if (totalHistory == 0)
-        cout << "No events yet." << endl;
+        cout << "No events yet" << endl;
     else
     {
         for (int i = 0; i < totalHistory; i++)
             cout << historyDate[i] << " | " << historyLog[i] << endl;
-        cout << "Total events: " << totalHistory << endl;
+        cout << "Total events " << totalHistory << endl;
     }
 }
 void visitorMenu()
 {
-    cout << "|---- VISITOR PANEL ----|" << endl;
-    cout << "1  -> View All Animals" << endl;
-    cout << "2  -> Search by Name" << endl;
-    cout << "3  -> Search by Species" << endl;
-    cout << "4  -> View by Habitat" << endl;
-    cout << "5  -> Sort Animals by Name" << endl;
-    cout << "6  -> View Endangered Animals" << endl;
-    cout << "7  -> Buy a Ticket" << endl;
-    cout << "8  -> View My Tickets" << endl;
-    cout << "9  -> Zoo Info & Animal Count" << endl;
-    cout << "10 -> Exit Visitor Panel" << endl;
+    cout << "---- VISITOR PANEL ----" << endl;
+    cout << "1   View All Animals" << endl;
+    cout << "2   Search by Name" << endl;
+    cout << "3   Search by Species" << endl;
+    cout << "4   View by Habitat" << endl;
+    cout << "5   Sort Animals by Name" << endl;
+    cout << "6   View Endangered Animals" << endl;
+    cout << "7   Buy a Ticket" << endl;
+    cout << "8   View My Tickets" << endl;
+    cout << "9   Zoo Info & Animal Count" << endl;
+    cout << "10  Exit Visitor Panel" << endl;
 }
 void viewAllAnimalsPublic(string animalName[], string species[], string habitat[], string conservationStatus[], int totalAnimals)
 {
     cout << "--- ALL ANIMALS ---" << endl;
     if (totalAnimals == 0)
-        cout << "No animals to display." << endl;
+        cout << "No animals to display" << endl;
     else
         for (int i = 0; i < totalAnimals; i++)
             cout << animalName[i] << " | " << species[i] << " | " << habitat[i] << " | " << conservationStatus[i] << endl;
@@ -320,25 +320,25 @@ void viewAllAnimalsPublic(string animalName[], string species[], string habitat[
 void searchByName(string animalName[], string species[], string habitat[], string conservationStatus[], int totalAnimals)
 {
     cout << "--- SEARCH BY NAME ---" << endl;
-    cout << "Enter name: ";
+    cout << "Enter name ";
     string searchName;
     cin >> searchName;
     int count = 0;
     for (int i = 0; i < totalAnimals; i++)
     {
-        if (animalName[i].find(searchName) != string::npos)
+        if (animalName[i] find(searchName) != string::npos)
         {
             cout << animalName[i] << " | " << species[i] << " | " << habitat[i] << " | " << conservationStatus[i] << endl;
             count++;
         }
     }
     if (count == 0)
-        cout << "No animals found." << endl;
+        cout << "No animals found" << endl;
 }
 void sortByA_Z(string animalName[], string species[], string habitat[], string conservationStatus[], int totalAnimals)
 {
     cout << "--- ANIMALS A-Z ---" << endl;
-    // Copy into temp arrays — main arrays never touched
+     Copy into temp arrays — main arrays never touched
     string tName[200], tSpecies[200], tHabitat[200], tStatus[200];
     int tCount = totalAnimals;
     for (int i = 0; i < tCount; i++)
@@ -348,7 +348,7 @@ void sortByA_Z(string animalName[], string species[], string habitat[], string c
         tHabitat[i] = habitat[i];
         tStatus[i] = conservationStatus[i];
     }
-    // Find min name position, swap using temp variable
+    Find min name position, swap using temp variable
     for (int i = 0; i < tCount - 1; i++)
     {
         int minPos = i;
@@ -373,7 +373,7 @@ void sortByA_Z(string animalName[], string species[], string habitat[], string c
         }
     }
     if (tCount == 0)
-        cout << "No animals." << endl;
+        cout << "No animals" << endl;
     else
         for (int i = 0; i < tCount; i++)
             cout << tName[i] << " | " << tSpecies[i] << " | " << tHabitat[i] << endl;
@@ -391,9 +391,9 @@ void endangeredAnimals(string animalName[], string species[], string habitat[], 
         }
     }
     if (count == 0)
-        cout << "No endangered animals found." << endl;
+        cout << "No endangered animals found" << endl;
     else
-        cout << "Total Endangered: " << count << endl;
+        cout << "Total Endangered " << count << endl;
 }
 void buyTicket(string ticketID[], string ticketName[], string ticketContact[], string ticketType[], int ticketPrice[], string ticketDate[],
                int &totalTickets, string historyLog[], string historyDate[], int &totalHistory)
@@ -402,15 +402,15 @@ void buyTicket(string ticketID[], string ticketName[], string ticketContact[], s
     cout << "adult=500 | child=250 | student=300 | family=1200" << endl;
     if (totalTickets >= 500)
     {
-        cout << "[ERROR] Max tickets reached." << endl;
+        cout << "[ERROR] Max tickets reached" << endl;
     }
     else
     {
-        cout << "Name        : ";
+        cout << "Name         ";
         cin >> ticketName[totalTickets];
-        cout << "Contact     : ";
+        cout << "Contact      ";
         cin >> ticketContact[totalTickets];
-        cout << "Ticket Type : ";
+        cout << "Ticket Type  ";
         cin >> ticketType[totalTickets];
 
         if (ticketType[totalTickets] == "adult")
@@ -437,7 +437,7 @@ void buyTicket(string ticketID[], string ticketName[], string ticketContact[], s
 void viewMyTicket(string ticketID[], string ticketContact[], string ticketType[], int ticketPrice[], string ticketDate[], int totalTickets)
 {
     cout << "--- MY TICKETS ---" << endl;
-    cout << "Enter contact number: ";
+    cout << "Enter contact number ";
     string myContact;
     cin >> myContact;
     int count = 0;
@@ -450,24 +450,24 @@ void viewMyTicket(string ticketID[], string ticketContact[], string ticketType[]
         }
     }
     if (count == 0)
-        cout << "No tickets found." << endl;
+        cout << "No tickets found" << endl;
     else
-        cout << "Total: " << count << endl;
+        cout << "Total " << count << endl;
 }
 void ZooInfoAnimalCount(string habitat[], string conservationStatus[], int totalAnimals, int totalTickets)
 {
     cout << "--- ZOO INFO ---" << endl;
-    cout << "Total Animals : " << totalAnimals << endl;
-    cout << "Tickets Sold  : " << totalTickets << endl;
+    cout << "Total Animals  " << totalAnimals << endl;
+    cout << "Tickets Sold   " << totalTickets << endl;
 
-    // Count endangered
+     Count endangered
     int endCount = 0;
     for (int i = 0; i < totalAnimals; i++)
         if (conservationStatus[i] == "endangered" || conservationStatus[i] == "critically endangered")
             endCount++;
-    cout << "Endangered    : " << endCount << endl;
+    cout << "Endangered     " << endCount << endl;
 
-    // Count per habitat
+    Count per habitat
     string uHabitat[200];
     int uCount[200];
     int uTotal = 0;
@@ -486,24 +486,24 @@ void ZooInfoAnimalCount(string habitat[], string conservationStatus[], int total
         else
             uCount[hFound]++;
     }
-    cout << "Animals per Habitat:" << endl;
+    cout << "Animals per Habitat" << endl;
     for (int h = 0; h < uTotal; h++)
         cout << "  " << uHabitat[h] << " : " << uCount[h] << endl;
 }
 main()
 {
-    // --- Animal arrays (max 200) ---
+     --- Animal arrays (max 200) ---
     int totalAnimals = 0;
     string animalID[200], animalName[200], species[200], habitat[200];
     string diet[200], healthStatus[200], conservationStatus[200];
     int isAlive[200];
 
-    // --- Ticket arrays (max 500) ---
+     --- Ticket arrays (max 500) ---
     int totalTickets = 0;
     string ticketID[500], ticketName[500], ticketContact[500], ticketType[500], ticketDate[500];
     int ticketPrice[500];
 
-    // --- History arrays (max 300) ---
+     --- History arrays (max 300) ---
     int totalHistory = 0;
     string historyLog[300], historyDate[300];
 
@@ -519,24 +519,24 @@ main()
         {
             int adminAttempts;
             system("cls");
-            cout << "|---- Admin (Zoo Manager) Login ----|" << endl;
-            cout << "| Press any key to Login            |" << endl;
+            cout << "---- Admin (Zoo Manager) Login ----" << endl;
+            cout << " Press any key to Login            " << endl;
             getch();
             for (adminAttempts = 0; adminAttempts < 3; adminAttempts++)
             {
                 system("cls");
                 cout << "Attempt " << adminAttempts + 1 << endl;
-                cout << "Username: ";
+                cout << "Username ";
                 string adminUsername;
                 cin >> adminUsername;
-                cout << "Password: ";
+                cout << "Password";
                 string adminPassword;
                 cin >> adminPassword;
 
                 if (adminUsername == "admin" && adminPassword == "1234")
                 {
                     system("cls");
-                    cout << "| Admin login successful! |" << endl;
+                    cout << " Admin login successful! " << endl;
                     while (true)
                     {
                         system("cls");
@@ -545,56 +545,56 @@ main()
                         string adminChoice;
                         cin >> adminChoice;
 
-                        // ── ADMIN 1 : Add New Animal ──────────────────────
+                         ADMIN 1 : Add New Animal 
                         if (adminChoice == "1")
                         {
                             system("cls");
                             addNewAnimal(animalID, animalName, species, habitat, diet, healthStatus, conservationStatus,
                                          isAlive, totalAnimals, historyLog, historyDate, totalHistory);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── ADMIN 2 : Remove Animal ───────────────────────
+                         ADMIN 2 : Remove Animal 
                         else if (adminChoice == "2")
                         {
                             system("cls");
                             removeAnimal(animalID, animalName, species, habitat, diet, healthStatus, conservationStatus,
                                          isAlive, totalAnimals, historyLog, historyDate, totalHistory);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── ADMIN 3 : Update Health Status ────────────────
+                         ADMIN 3 : Update Health Status 
                         else if (adminChoice == "3")
                         {
                             system("cls");
                             healthStatusUpdate(animalID, animalName, healthStatus, totalAnimals,
                                                historyLog, historyDate, totalHistory);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── ADMIN 4 : Update Diet ─────────────────────────
+                         ADMIN 4 : Update Diet 
                         else if (adminChoice == "4")
                         {
                             system("cls");
                             dietUpdate(animalID, animalName, diet, totalAnimals,
                                        historyLog, historyDate, totalHistory);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── ADMIN 5 : View All Animals ────────────────────
+                         ADMIN 5 : View All Animals 
                         else if (adminChoice == "5")
                         {
                             system("cls");
                             viewAllAnimals(animalID, animalName, species, habitat, diet, healthStatus, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── ADMIN 6 : Search by Species ───────────────────
+                         ADMIN 6 : Search by Species 
                         else if (adminChoice == "6")
                         {
                             system("cls");
@@ -603,65 +603,65 @@ main()
                             getch();
                         }
 
-                        // ── ADMIN 7 : Sort by Name (asc / desc) ──────────
+                        ADMIN 7 : Sort by Name (asc / desc)
                         else if (adminChoice == "7")
                         {
                             system("cls");
                             sortByName(animalID, animalName, species, habitat, diet, healthStatus, conservationStatus,
                                        isAlive, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── ADMIN 8 : View by Habitat ─────────────────────
+                         ADMIN 8 : View by Habitat 
                         else if (adminChoice == "8")
                         {
                             system("cls");
                             viewByHabitat(animalName, species, habitat, healthStatus, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── ADMIN 9 : View History Log ────────────────────
+                         ADMIN 9 : View History Log 
                         else if (adminChoice == "9")
                         {
                             system("cls");
                             viewHistoryLog(historyLog, historyDate, totalHistory);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
                         else if (adminChoice == "10")
                         {
-                            cout << "Logging out from Admin (Election Officer) Panel..." << endl;
-                            cout << "Press Enter to confirm logout..." << endl;
+                            cout << "Logging out from Admin  Panel" << endl;
+                            cout << "Press Enter to confirm logout" << endl;
                             getch();
                             break;
                         }
                         else
                         {
-                            cout << "Invalid option. Choose 1-10." << endl;
-                            cout << "Press any key...";
+                            cout << "Invalid option. Choose 1-10" << endl;
+                            cout << "Press any key";
                             getch();
                         }
                     }
-                    cout << "Press any key to return to the main menu..." << endl;
+                    cout << "Press any key to return to the main menu" << endl;
                     getch();
                     break;
                 }
                 else
                 {
-                    cout << "Invalid credentials. " << endl;
+                    cout << "Invalid credentials " << endl;
                     if (adminAttempts < 2)
                     {
-                        cout << "Try again." << endl;
-                        cout << "Press any key...";
+                        cout << "Try again" << endl;
+                        cout << "Press any key";
                         getch();
                     }
                     else
                     {
-                        cout << "Account Locked." << endl;
-                        cout << "Press any key...";
+                        cout << "Account Locked" << endl;
+                        cout << "Press any key";
                         getch();
                     }
                 }
@@ -672,145 +672,145 @@ main()
         {
             int visitorAttempts;
             system("cls");
-            cout << "|---- Visitor (Guest) Login ----|" << endl;
-            cout << "| Press any key to Login        |" << endl;
+            cout << "---- Visitor (Guest) Login ----" << endl;
+            cout << " Press any key to Login        " << endl;
             getch();
             for (visitorAttempts = 0; visitorAttempts < 3; visitorAttempts++)
             {
                 system("cls");
                 cout << "Attempt " << visitorAttempts + 1 << endl;
-                cout << "Username: ";
+                cout << "Username ";
                 string visitorUsername;
                 cin >> visitorUsername;
-                cout << "Password: ";
+                cout << "Password ";
                 string visitorPassword;
                 cin >> visitorPassword;
 
                 if (visitorUsername == "visitor" && visitorPassword == "1234")
                 {
                     system("cls");
-                    cout << "| Visitor login successful! |" << endl;
+                    cout << " Visitor login successful! " << endl;
                     while (true)
                     {
                         system("cls");
                         visitorMenu();
-                        cout << "Select: ";
+                        cout << "Select ";
                         string visitorChoice;
                         cin >> visitorChoice;
 
-                        // ── VISITOR 1 : View All Animals (public only) ────
+                        VISITOR 1 : View All Animals (public only)
                         if (visitorChoice == "1")
                         {
                             system("cls");
                             viewAllAnimalsPublic(animalName, species, habitat, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── VISITOR 2 : Search by Name ────────────────────
+                         VISITOR 2 : Search by Name 
                         else if (visitorChoice == "2")
                         {
                             system("cls");
                             searchByName(animalName, species, habitat, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── VISITOR 3 : Search by Species ─────────────────
+                         VISITOR 3 : Search by Species 
                         else if (visitorChoice == "3")
                         {
                             system("cls");
                             searchBySpecies(animalName, species, habitat, healthStatus, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── VISITOR 4 : View by Habitat ───────────────────
+                         VISITOR 4 : View by Habitat 
                         else if (visitorChoice == "4")
                         {
                             system("cls");
                             viewByHabitat(animalName, species, habitat, healthStatus, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── VISITOR 5 : Sort A-Z (temp copy, main unchanged)
+                         VISITOR 5 : Sort A-Z (temp copy, main unchanged)
                         else if (visitorChoice == "5")
                         {
                             system("cls");
                             sortByA_Z(animalName, species, habitat, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── VISITOR 6 : View Endangered Animals ───────────
+                         VISITOR 6 : View Endangered Animals 
                         else if (visitorChoice == "6")
                         {
                             system("cls");
                             endangeredAnimals(animalName, species, habitat, conservationStatus, totalAnimals);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── VISITOR 7 : Buy a Ticket ──────────────────────
+                         VISITOR 7 : Buy a Ticket 
                         else if (visitorChoice == "7")
                         {
                             system("cls");
                             buyTicket(ticketID, ticketName, ticketContact, ticketType, ticketPrice, ticketDate,
                                       totalTickets, historyLog, historyDate, totalHistory);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── VISITOR 8 : View My Tickets ───────────────────
+                         VISITOR 8 : View My Tickets 
                         else if (visitorChoice == "8")
                         {
                             system("cls");
                             viewMyTicket(ticketID, ticketContact, ticketType, ticketPrice, ticketDate, totalTickets);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
-                        // ── VISITOR 9 : Zoo Info & Animal Count ───────────
+                         VISITOR 9 : Zoo Info & Animal Count 
                         else if (visitorChoice == "9")
                         {
                             system("cls");
                             ZooInfoAnimalCount(habitat, conservationStatus, totalAnimals, totalTickets);
-                            cout << "Press any key...";
+                            cout << "Press any key";
                             getch();
                         }
 
                         else if (visitorChoice == "10")
                         {
-                            cout << "Logging out from visitor Panel..." << endl;
-                            cout << "Press Enter to confirm logout." << endl;
+                            cout << "Logging out from visitor Panel" << endl;
+                            cout << "Press Enter to confirm logout" << endl;
                             getch();
                             break;
                         }
                         else
                         {
-                            cout << "Invalid option. Choose 1-10." << endl;
-                            cout << "Press any key...";
+                            cout << "Invalid option. Choose 1-10" << endl;
+                            cout << "Press any key";
                             getch();
                         }
                     }
-                    cout << "Press any key to return to the main menu..." << endl;
+                    cout << "Press any key to return to the main menu" << endl;
                     getch();
                     break;
                 }
                 else
                 {
-                    cout << "Invalid credentials. " << endl;
+                    cout << "Invalid credentials " << endl;
                     if (visitorAttempts < 2)
                     {
-                        cout << "Try again." << endl;
-                        cout << "Press any key...";
+                        cout << "Try again" << endl;
+                        cout << "Press any key";
                         getch();
                     }
                     else
                     {
-                        cout << "Account Locked." << endl;
-                        cout << "Press any key...";
+                        cout << "Account Locked" << endl;
+                        cout << "Press any key";
                         getch();
                     }
                 }
@@ -824,7 +824,7 @@ main()
         }
         else
         {
-            cout << "Invalid option. Try again." << endl;
+            cout << "Invalid option. Try again" << endl;
             getch();
         }
     }
