@@ -50,11 +50,11 @@ int main()
                 if (adminUsername == "admin" && adminPassword == "1234")
                 {
                     system("cls");
-                    cout << "| Admin login successful! |" << endl;
+                    cout << " Admin login successful! " << endl;
                     while (true)
                     {
                         system("cls");
-                        cout << "|---- ADMIN PANEL ----|"          << endl;
+                        cout << "---- ADMIN PANEL ----"          << endl;
                         cout << "1   Add New Animal"             << endl;
                         cout << "2   Remove an Animal"           << endl;
                         cout << "3   Update Health Status"       << endl;
@@ -95,7 +95,7 @@ int main()
                                 cout << "Conservation Status ";
                                 cin >> conservationStatus[totalAnimals];
                                 isAlive[totalAnimals] = 1;
-                                historyLog[totalHistory]  = "ADD: " + animalName[totalAnimals] + " (ID:" + animalID[totalAnimals] + ")";
+                                historyLog[totalHistory]  = "ADD " + animalName[totalAnimals] + " (ID" + animalID[totalAnimals] + ")";
                                 historyDate[totalHistory] = "Session";
                                 totalHistory++;
                                 totalAnimals++;
@@ -124,13 +124,13 @@ int main()
                             }
                             else
                             {
-                                cout << "Name: " << animalName[found] << " | Species " << species[found] << endl;
+                                cout << "Name " << animalName[found] << " | Species " << species[found] << endl;
                                 cout << "Confirm remove?  ";
                                 string confirm; 
                                 cin >> confirm;
                                 if (confirm == "y" || confirm == "Y")
                                 {
-                                    historyLog[totalHistory]  = "REMOVE: " + animalName[found] + " (ID:" + removeID + ")";
+                                    historyLog[totalHistory]  = "REMOVE " + animalName[found] + " (ID" + removeID + ")";
                                     historyDate[totalHistory] = "Session";
                                     totalHistory++;
                                      Shift ALL 8 arrays left to fill the gap
@@ -148,7 +148,7 @@ int main()
                                     totalAnimals;
                                     cout << "Animal removed" << endl;
                                 }
-                                else cout << "Cancelled." << endl;
+                                else cout << "Cancelled" << endl;
                             }
                             cout << "Press any key"; 
                             getch();
@@ -179,10 +179,10 @@ int main()
                                 cin >> newStatus;
                                 string oldStatus    = healthStatus[found];
                                 healthStatus[found] = newStatus;
-                                historyLog[totalHistory]  = "UPDATE HEALTH: " + animalName[found] + " | " + oldStatus + " -> " + newStatus;
+                                historyLog[totalHistory]  = "UPDATE HEALTH " + animalName[found] + " | " + oldStatus + " : " + newStatus;
                                 historyDate[totalHistory] = "Session";
                                 totalHistory++;
-                                cout << "Health updated." << endl;
+                                cout << "Health updated" << endl;
                             }
                             cout << "Press any key";
                             getch();
@@ -213,7 +213,7 @@ int main()
                                 cin >> newDiet;
                                 string oldDiet = diet[found];
                                 diet[found]    = newDiet;
-                                historyLog[totalHistory]  = "UPDATE DIET: " + animalName[found] + " | " + oldDiet + " -> " + newDiet;
+                                historyLog[totalHistory]  = "UPDATE DIET " + animalName[found] + " | " + oldDiet + " : " + newDiet;
                                 historyDate[totalHistory] = "Session";
                                 totalHistory++;
                                 cout << "Diet updated" << endl;
@@ -242,7 +242,7 @@ int main()
                                     if (healthStatus[i] == "healthy") healthy++;
                                     else sick++;
                                 }
-                                cout << "Total " << totalAnimals << " | Healthy: " << healthy << " | Sick: " << sick << endl;
+                                cout << "Total " << totalAnimals << " | Healthy " << healthy << " | Sick " << sick << endl;
                             }
                             cout << "Press any key"; 
                              getch();
@@ -265,7 +265,7 @@ int main()
                                     count++;
                                 }
                             }
-                            if (count == 0) cout << "No animals found." << endl;
+                            if (count == 0) cout << "No animals found" << endl;
                             else cout << "Found " << count << endl;
                             cout << "Press any key";
                              getch();
@@ -349,7 +349,7 @@ int main()
 
                         else if (adminChoice == "10")
                         {
-                            cout << "Logging out from Admin " << endl;
+                            cout << "Logging out from Admin panel " << endl;
                             cout << "Press Enter to confirm logout" << endl;
                             getch();
                             break;
@@ -426,7 +426,7 @@ int main()
                         {
                             system("cls");
                             cout << "--- ALL ANIMALS ---" << endl;
-                            if (totalAnimals == 0) cout << "No animals to display." << endl;
+                            if (totalAnimals == 0) cout << "No animals to display" << endl;
                             else
                                 for (int i = 0; i < totalAnimals; i++)
                                     cout << animalName[i] << " | " << species[i] << " | " << habitat[i] << " | " << conservationStatus[i] << endl;
@@ -499,8 +499,8 @@ int main()
                                 }
                             }
                             if (count == 0)
-                                cout << "No animals found." << endl;
-                            else cout << "Total: " << count << endl;
+                                cout << "No animals found" << endl;
+                            else cout << "Total " << count << endl;
                             cout << "Press any key";
                              getch();
                         }
@@ -591,7 +591,7 @@ int main()
                                 ticketDate[totalTickets] = "Session";
                                 cout << "Ticket ID: " << ticketID[totalTickets] << " | " << ticketType[totalTickets] << " | Rs." << ticketPrice[totalTickets] << endl;
 
-                                historyLog[totalHistory]  = "TICKET: " + ticketName[totalTickets] + " bought " + ticketType[totalTickets];
+                                historyLog[totalHistory]  = "TICKET " + ticketName[totalTickets] + " bought " + ticketType[totalTickets];
                                 historyDate[totalHistory] = "Session";
                                 totalHistory++;
                                 totalTickets++;
@@ -605,7 +605,7 @@ int main()
                         {
                             system("cls");
                             cout << "--- MY TICKETS ---" << endl;
-                            cout << "Enter contact number: ";
+                            cout << "Enter contact number ";
                              string myContact;
                              cin >> myContact;
                             int count = 0;
@@ -617,7 +617,8 @@ int main()
                                     count++;
                                 }
                             }
-                            if (count == 0) cout << "No tickets found" << endl;
+                            if (count == 0)
+                            cout << "No tickets found" << endl;
                             else cout << "Total " << count << endl;
                             cout << "Press any key"; 
                             getch();
@@ -663,7 +664,7 @@ int main()
                         }
                         else
                         {
-                            cout << "Invalid option. Choose 1-10." << endl;
+                            cout << "Invalid option. Choose 1-10" << endl;
                             cout << "Press any key";
                             getch();
                         }
